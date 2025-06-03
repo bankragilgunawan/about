@@ -3,38 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tentang Ragil Apps</title>
+  <title>Tentang Saya</title>
   <style>
     body {
       font-family: 'Courier New', Courier, monospace;
-      background-color: #f0f8ff;
-      color: #222;
-      padding: 30px;
+      background: #e3f2fd;
+      color: #333;
       margin: 0;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 800px;
+      max-width: 700px;
       margin: auto;
       background: white;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     h1 {
       text-align: center;
       color: #1565c0;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     p {
-      line-height: 1.7;
       font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
-    ul {
+    .app-list {
+      margin-top: 20px;
       padding-left: 20px;
+    }
+
+    .app-list li {
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
     }
 
     a {
@@ -46,65 +65,69 @@
       text-decoration: underline;
     }
 
-    .footer {
+    .badge {
+      background: #1565c0;
+      color: white;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    .donate {
       text-align: center;
       margin-top: 30px;
-      font-size: 14px;
-      color: #555;
+      padding: 15px;
+      background: #fff3e0;
+      border: 1px dashed #ff9800;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #e65100;
     }
 
-    .apps {
-      margin-top: 20px;
+    .donate a {
+      background: #ff9800;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
     }
 
-    .apps li {
-      margin-bottom: 8px;
-    }
-
-    .badge {
-      background-color: gold;
-      color: black;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 12px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 15px;
-      }
-      .container {
-        padding: 20px;
-      }
+    .donate a:hover {
+      background: #f57c00;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>👋 Hai, Selamat Datang!</h1>
-    <p>
-      Ini adalah kumpulan aplikasi sederhana buatan <strong>Ragil Gunawan</strong>. Dibuat dengan semangat ngoding santai, tapi tetap niat 😄. Semua aplikasi bisa digunakan langsung lewat browser — tanpa instalasi.
-    </p>
+    <h1>ℹ️ Tentang Aplikasi</h1>
 
-    <h3>📦 Aplikasi yang Tersedia:</h3>
-    <ul class="apps">
-      <li><a href="https://bankragilgunawan.github.io/Catatan-keuangan/">📒 Catatan Keuangan</a> – Kelola pengeluaran & pemasukan kamu</li>
-      <li><a href="https://bankragilgunawan.github.io/Musik/">🎵 MusikApp</a> – Pemutar musik ringan, bisa upload lagu sendiri</li>
-      <li><a href="https://bankragilgunawan.github.io/Nota/">🧾 Struk Belanja Retro</a> – Cetak struk keren dan kirim ke WhatsApp</li>
-      <li><a href="prediksi-sicbo/">🎲 Prediksi Sicbo</a> – Prediksi pola angka dan statistik game ( masih pengembangan sih, sabar yaa 😄 )</li>
+    <p>Halo! 👋 Saya membuat beberapa aplikasi web ringan dan berguna untuk membantu aktivitas sehari-hari, baik itu mencatat keuangan, membuat struk belanja, atau sekadar hiburan seperti musik player dan prediksi permainan.</p>
+
+    <p>Aplikasi ini dibangun dengan cinta 💙 menggunakan HTML, CSS, dan JavaScript — tanpa framework besar, agar tetap ringan, cepat, dan bisa diakses dari HP maupun laptop.</p>
+
+    <p>Beberapa aplikasi yang tersedia:</p>
+    <ul class="app-list">
+      <li><a href="https://ragilgunawan.github.io/Catatan-keuangan">Catatan Keuangan</a> <span class="badge">Keuangan</span></li>
+      <li><a href="https://ragilgunawan.github.io/Musik">Pemutar Musik</a> <span class="badge">Hiburan</span></li>
+      <li><a href="https://ragilgunawan.github.io/Nota">Struk Belanja</a> <span class="badge">Belanja</span></li>
+      <li><a href="https://ragilgunawan.github.io/sicbo-predictor">Prediksi Sicbo</a> <span class="badge">Eksperimen</span></li>
     </ul>
 
-    <h3>📬 Kontak & Dukungan</h3>
-    <p>
-      Ada saran, ide, atau sekadar say hi? Kirim aja email ke:<br/>
-      <a href="mailto:bankragilgunawan@gmail.com">bankragilgunawan@gmail.com</a><br/><br/>
-      Mau dukung ngopi? ☕<br/>
-      <a href="https://trakteer.id/" target="_blank">Klik di sini buat Trakteer</a>
-    </p>
+    <div class="donate">
+      ☕ Suka aplikasinya? Dukung saya dengan <strong>Trakteer</strong> agar makin semangat ngoding!<br>
+      <a href="https://trakteer.id/bankragilgunawan/tip" target="_blank">💖 Trakteer Sekarang</a>
+    </div>
+
+    <p>Semua aplikasi gratis digunakan dan tidak menyimpan data pengguna ke server mana pun. Semua data disimpan lokal di perangkat kamu.</p>
+    <p>oiya, kalau butuh aplikasi lan bilang aja, nanti bakal aku spil disini</p>
 
     <div class="footer">
-      Dibuat dengan ❤️ oleh Ragil Gunawan • 2025
+      Dibuat oleh <strong>Ragil Gunawan</strong><br/>
+      📧 <a href="mailto:bankragilgunawan@gmail.com">bankragilgunawan@gmail.com</a><br/>
+      🌐 <a href="https://github.com/ragilgunawan" target="_blank">GitHub</a> | 💬 <a href="https://wa.me/6282121218466" target="_blank">Kontak WhatsApp</a>
     </div>
   </div>
 </body>
