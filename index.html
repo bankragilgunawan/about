@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tentang Saya</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Aplikasi</title>
   <style>
     body {
-      font-family: 'Courier New', Courier, monospace;
-      background: #e3f2fd;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 20px;
-      animation: fadeIn 1s ease-in-out;
+      background: #f5f7fa;
+      color: #333;
+      animation: fadeIn 0.5s ease;
     }
 
     @keyframes fadeIn {
@@ -19,116 +18,340 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    .intro-box {
+  background: #ffffff;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+.intro-box h1 {
+  color: #1565c0;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.intro-box p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.trakteer-btn {
+  display: inline-block;
+  background-color: #f43f5e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.trakteer-btn:hover {
+  background-color: #e11d48;
+}
+    
+    .judul {
+  font-size: 2rem;
+  color: #1565c0;
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.deskripsi {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.subjudul {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #777;
+  line-height: 1.6;
+}
+
+.trakteer-btn {
+  display: inline-block;
+  background-color: #f43f5e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.trakteer-btn:hover {
+  background-color: #e11d48;
+}
+    .apps-container {
+      max-width: 960px;
+      margin: 40px auto;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      padding: 0 20px;
     }
 
-    h1 {
+    .app-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       text-align: center;
-      color: #1565c0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .app-icon {
+      font-size: 40px;
+    }
+
+    .app-name {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-content h2 {
+      margin-bottom: 10px;
+      color: #1976d2;
+    }
+
+    .modal-content p {
+      font-size: 16px;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+    .modal-content button {
+      padding: 10px 20px;
+      border: none;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .app-list {
-      margin-top: 20px;
-      padding-left: 20px;
+    .btn-primary {
+      background: #1976d2;
+      color: white;
     }
 
-    .app-list li {
-      margin-bottom: 8px;
+    .btn-secondary {
+      background: #e0e0e0;
     }
 
     .footer {
-      margin-top: 40px;
       text-align: center;
       font-size: 14px;
-      color: #777;
+      margin: 60px 0 20px;
+      color: #999;
     }
+    
+    footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #777;
+  line-height: 1.6;
+}
 
-    a {
-      color: #1565c0;
-      text-decoration: none;
-    }
+footer a {
+  color: #1565c0;
+  text-decoration: none;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .badge {
-      background: #1565c0;
-      color: white;
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 4px;
-      margin-left: 6px;
-    }
-
-    .donate {
-      text-align: center;
-      margin-top: 30px;
-      padding: 15px;
-      background: #fff3e0;
-      border: 1px dashed #ff9800;
-      border-radius: 8px;
-      font-size: 16px;
-      color: #e65100;
-    }
-
-    .donate a {
-      background: #ff9800;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 6px;
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-    }
-
-    .donate a:hover {
-      background: #f57c00;
-    }
+footer a:hover {
+  text-decoration: underline;
+}
+    
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>ℹ️ Tentang Saya</h1>
+    
+<div class="intro-box">
+  <h1>✨ Selamat Datang di Halaman Karya</h1>
+  <p>
+    Kumpulan aplikasi ringan dan praktis, dibuat dengan semangat berbagi untuk kamu yang suka teknologi sederhana namun fungsional. Bebas iklan dan Privasi aman, karena kami hanya menggunakan Code HTML CSS dan JavaScript.
+  </p><p>Jika kamu suka,dan ingin memberikan dukungan,kopi silahkan berikan donasi disini 👇</p>
+  <a href="https://trakteer.id/bankragilgunawan" target="_blank" class="trakteer-btn">
+    💖 Dukung lewat Trakteer
+  </a>
+</div>
 
-    <p>Halo! 👋 Saya Ragil, pemembuat beberapa aplikasi web ringan dan berguna untuk membantu aktivitas sehari-hari, baik itu mencatat keuangan, membuat struk belanja, atau sekadar hiburan seperti musik player dan prediksi permainan.</p>
-
-    <p>Aplikasi ini dibangun dengan cinta 💙 menggunakan HTML, CSS, dan JavaScript — tanpa framework besar, agar tetap ringan, cepat, dan bisa diakses dari HP maupun laptop.</p>
-
-    <p>Beberapa aplikasi yang tersedia:</p>
-    <ul class="app-list">
-      <li><a href="https://bankragilgunawan.github.io/Catatan-keuangan">Catatan Keuangan</a> <span class="badge">Keuangan</span></li>
-      <li><a href="https://bankragilgunawan.github.io/Musik">Pemutar Musik</a> <span class="badge">Hiburan</span></li>
-      <li><a href="https://bankragilgunawan.github.io/Nota">Struk Belanja</a> <span class="badge">Belanja</span></li>
-      <li><a href="https://bankragilgunawan.github.io/sicbo-predictor">Prediksi Sicbo</a> <span class="badge">Coming soon </span></li>
-    </ul> 
-
-    <div class="donate">
-      ☕ Suka aplikasinya? Dukung saya dengan <strong>Trakteer</strong> agar makin semangat ngoding!<br>
-      <a href="https://trakteer.id/bankragilgunawan/tip" target="_blank">💖 Trakteer Sekarang</a>
+  <div class="apps-container">
+    <div class="app-card" onclick="openModal('📒 Catatan Keuangan', 'Aplikasi sederhana untuk mencatat pemasukan dan pengeluaran harian Anda, dengan tampilan modern dan fitur grafik.')">
+      <div class="app-icon">📒</div>
+      <div class="app-name">Catatan Keuangan</div>
     </div>
 
-    <p>Semua aplikasi gratis digunakan dan tidak menyimpan data pengguna ke server mana pun. Semua data disimpan lokal di perangkat kamu.</p>
-    <p>oiya, kalau butuh aplikasi lain bilang aja, nanti bakal aku spil disini</p>
+    <div class="app-card" onclick="openModal('🎵 Pemutar Musik', 'Pemutar musik berbasis web, bisa upload lagu, shuffle, repeat, simpan playlist dan ganti tema.')">
+      <div class="app-icon">🎵</div>
+      <div class="app-name">Pemutar Musik</div>
+    </div>
 
-    <div class="footer">
-      Dibuat oleh <strong>Ragil Gunawan</strong><br/>
-      📧 <a href="mailto:bankragilgunawan@gmail.com">bankragilgunawan@gmail.com</a><br/>
-      🌐 <a href="https://github.com/bankragilgunawan" target="_blank">GitHub</a> | 💬 <a href="https://wa.me/6282121218466" target="_blank">Kontak WhatsApp</a>
+    <div class="app-card" onclick="openModal('🧾 Struk Belanja', 'Buat struk belanja retro dan kirim via WhatsApp. Cocok untuk usaha kecil!')">
+      <div class="app-icon">🧾</div>
+      <div class="app-name">Struk Belanja</div>
+    </div>
+
+    <div class="app-card" onclick="openModal('🎲 Prediksi Sicbo', 'Eksperimen prediksi hasil permainan dadu dengan tampilan dan riwayat pola otomatis.(coming soon)')">
+      <div class="app-icon">🎲</div>
+      <div class="app-name">Prediksi Sicbo</div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal" id="appModal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Judul Aplikasi</h2>
+      <p id="modalDesc">Deskripsi aplikasi akan muncul di sini.</p>
+      <button class="btn-primary" id="goToApp">Lanjut ke Aplikasi</button>
+      <button class="btn-secondary" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+
+<div class="intro-box" style="margin-bottom: 50px;">
+  <p>
+    <strong>By : Ragil Gunawan © 2025</strong><br/>
+      </p><p>Tertarik untuk memiliki aplikasi sendiri mari diskusi klik tombol bulat di 👉</p>
+</div>
+
+  <script>
+    const modal = document.getElementById('appModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const goToApp = document.getElementById('goToApp');
+
+    const appLinks = {
+      '📒 Catatan Keuangan': 'https://bankragilgunawan.github.io/Catatan-keuangan',
+      '🎵 Pemutar Musik': 'https://bankragilgunawan.github.io/Musik',
+      '🧾 Struk Belanja': 'https://bankragilgunawan.github.io/Nota',
+      '🎲 Prediksi Sicbo': 'https://bankragilgunawan.github.io/Sicbo'
+    };
+
+    function openModal(title, desc) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      goToApp.onclick = () => window.open(appLinks[title], '_blank');
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) closeModal();
+    };
+  </script>
+  
+<!-- ...konten about.html sebelumnya -->
+
+<!-- Tambahkan di sini 👇 -->
+<div id="floatingBtn" onclick="toggleContactMenu()">📬</div>
+
+<div id="contactMenu">
+  <a href="mailto:bankragilgunawan@gmail.com" target="_blank">📧 Email</a>
+  <a href="https://github.com/bankragilgunawan" target="_blank">💻 GitHub</a>
+  <a href="https://wa.me/6282121218466" target="_blank">📱 WhatsApp</a>
+</div>
+
+<style>
+  /* CSS tombol melayang dan menu kontak */
+  #floatingBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1976d2;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+
+  #floatingBtn:hover {
+    transform: scale(1.1);
+  }
+
+  #contactMenu {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+    animation: slideUp 0.3s ease;
+  }
+
+  #contactMenu a {
+    text-decoration: none;
+    color: #1976d2;
+    font-weight: bold;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  function toggleContactMenu() {
+    const menu = document.getElementById('contactMenu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  }
+</script>
+
 </body>
 </html>
