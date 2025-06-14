@@ -1,357 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tentang Aplikasi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Ragil Apps</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: sans-serif;
       margin: 0;
-      background: #f5f7fa;
+      background: #f7f7f7 url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366?fit=crop&w=1200&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
-      animation: fadeIn 0.5s ease;
+      padding: 20px;
     }
-
-    @keyframes fadeIn {
+    .floating-header,
+    .floating-footer,
+    .glass-block {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      margin-bottom: 0.2em;
+      color: white;
+    }
+    .intro {
+      font-size: 1.1em;
+      color: #fff8dc;
+    }
+    .app {
+      background: rgba(255,255,255,0.85);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .app:nth-child(3) { animation-delay: 0.3s; }
+    .app:nth-child(4) { animation-delay: 0.9s; }
+    .app:nth-child(5) { animation-delay: 1.5s; }
+    .app:nth-child(6) { animation-delay: 2.3s; }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .app h2 {
+      margin: 0 0 5px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn-trakteer {
+      display: block;
+      text-align: center;
+      margin: 30px auto 0;
+      font-size: 16px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-trakteer img {
+      margin-top: 10px;
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    .floating-footer {
+      margin: 50px 0 0;
+      color: #fff;
+      font-size: 14px;
+    }
+    @keyframes fadeSlide {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    .intro-box {
-  background: #ffffff;
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  animation: fadeInUp 1s ease;
-}
-
-.intro-box h1 {
-  color: #1565c0;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
-
-.intro-box p {
-  color: #444;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.trakteer-btn {
-  display: inline-block;
-  background-color: #f43f5e;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-.trakteer-btn:hover {
-  background-color: #e11d48;
-}
-    
-    .judul {
-  font-size: 2rem;
-  color: #1565c0;
-  text-align: center;
-  margin-top: 30px;
-  animation: fadeInDown 0.8s ease;
-}
-
-.deskripsi {
-  font-size: 1rem;
-  color: #444;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
-}
-
-.subjudul {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #777;
-  line-height: 1.6;
-}
-
-.trakteer-btn {
-  display: inline-block;
-  background-color: #f43f5e;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-.trakteer-btn:hover {
-  background-color: #e11d48;
-}
-    .apps-container {
-      max-width: 960px;
-      margin: 40px auto;
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      padding: 0 20px;
-    }
-
-    .app-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .app-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .app-icon {
-      font-size: 40px;
-    }
-
-    .app-name {
-      margin-top: 10px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .modal-content {
-      background: white;
-      max-width: 400px;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      animation: zoomIn 0.3s ease;
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-content h2 {
-      margin-bottom: 10px;
-      color: #1976d2;
-    }
-
-    .modal-content p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .modal-content button {
-      padding: 10px 20px;
-      border: none;
-      margin: 5px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #1976d2;
-      color: white;
-    }
-
-    .btn-secondary {
-      background: #e0e0e0;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 14px;
-      margin: 60px 0 20px;
-      color: #999;
-    }
-    
-    footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #777;
-  line-height: 1.6;
-}
-
-footer a {
-  color: #1565c0;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-    
   </style>
 </head>
 <body>
-    
-<div class="intro-box">
-  <h1>✨ Selamat Datang di Halaman Karya</h1>
-  <p>
-    Kumpulan aplikasi ringan dan praktis, dibuat dengan semangat berbagi untuk kamu yang suka teknologi sederhana namun fungsional. Bebas iklan dan Privasi aman, karena kami hanya menggunakan Code HTML CSS dan JavaScript.
-  </p><p>Jika kamu suka,dan ingin memberikan dukungan,kopi silahkan berikan donasi disini 👇</p>
-  <a href="https://trakteer.id/bankragilgunawan" target="_blank" class="trakteer-btn">
-    💖 Dukung lewat Trakteer
+  <div class="floating-header">
+    <h1>🌟 Aplikasi Karya Bank Ragil</h1>
+    <p class="intro">
+      Selamat datang!<br> Ini kumpulan karya terbaik yang telah aku buat. Dijamin aman, ringan, <br>dan tanpa iklan tentunya😄<br>
+      Cocok buat harian, santai, dan produktif. <br>Silakan dicoba satu per satu ya!
+    </p>
+  </div>
+
+  <div class="app">
+    <h2>🧾 Nota Belanja Retro</h2>
+    <p>Catat dan cetak nota belanja gaya retro. Bisa kirim ke WhatsApp dan download struk, ringan dan cepat di akses.</p>
+    <a class="btn" href="https://bankragilgunawan.github.io/Nota">Coba Sekarang</a>
+  </div>
+
+  <div class="app">
+    <h2>🎵 Pemutar Musik</h2>
+    <p>Putar lagu favorit dari HP kamu, lengkap dengan playlist, shuffle, dan pastinya tanpa iklan mengganggu.</p>
+    <a class="btn" href="https://bankragilgunawan.github.io/Musik">Coba Sekarang</a>
+  </div>
+
+  <div class="app">
+    <h2>📒 Catatan Keuangan</h2>
+    <p>Atur keuangan harian, lihat grafik pemasukan & pengeluaran, dilengkapi dengan tema gelap/terang..</p>
+    <a class="btn" href="https://bankragilgunawan.github.io/Catatan-keuangan">Coba Sekarang</a>
+  </div>
+
+  <div class="app">
+    <h2>🎲 Prediksi Sicbo</h2>
+    <p>Masukkan angka, lihat hasil besar/kecil, ganjil/genap, Lihat seberapa akurat prediksimu? dilengkapi dengan input modal, dan profit-loss.</p>
+    <a class="btn" href="https://bankragilgunawan.github.io/prediksi-sicbo">Coba Sekarang</a>
+  </div>
+
+  <div class="glass-block">
+    <a class="btn-trakteer" href="https://bankragilgunawan.wordpress.com/wp-content/uploads/2025/06/img_20250603_0835236907856793821977069.jpg" target="_blank">
+        
+    ☕ <span style="color:#e91e63; font-weight:bold;">Dukung aku di Trakteer</span>, 
+<br><span style="color:#ff4081;">dukunganmu berarti banget buat aku</span><br>
+       <img src="https://bankragilgunawan.wordpress.com/wp-content/uploads/2025/06/img_20250603_0835236907856793821977069.jpg" alt="QR Trakteer">
   </a>
-</div>
+  <a href="https://trakteer.id/bankragilgunawan" class="btn" style="background:#ff5722;margin:5px;">Trakteer Langsung</a>
 
-  <div class="apps-container">
-    <div class="app-card" onclick="openModal('📒 Catatan Keuangan', 'Aplikasi sederhana untuk mencatat pemasukan dan pengeluaran harian Anda, dengan tampilan modern dan fitur grafik.')">
-      <div class="app-icon">📒</div>
-      <div class="app-name">Catatan Keuangan</div>
-    </div>
 
-    <div class="app-card" onclick="openModal('🎵 Pemutar Musik', 'Pemutar musik berbasis web, bisa upload lagu, shuffle, repeat, simpan playlist dan ganti tema.')">
-      <div class="app-icon">🎵</div>
-      <div class="app-name">Pemutar Musik</div>
-    </div>
-
-    <div class="app-card" onclick="openModal('🧾 Struk Belanja', 'Buat struk belanja retro dan kirim via WhatsApp. Cocok untuk usaha kecil!')">
-      <div class="app-icon">🧾</div>
-      <div class="app-name">Struk Belanja</div>
-    </div>
-
-    <div class="app-card" onclick="openModal('🎲 Prediksi Sicbo', 'Eksperimen prediksi hasil permainan dadu dengan tampilan dan riwayat pola otomatis.(new)')">
-      <div class="app-icon">🎲</div>
-      <div class="app-name">Prediksi Sicbo</div>
+  <div style="text-align: center; margin-top: 30px;">
+    <button onclick="toggleContact()" style="padding: 10px 20px; border: none; border-radius: 8px; background: #2196f3; color: white; font-size: 16px;">📞 Kontak</button>
+    <div id="contact-options" style="display: none; margin-top: 15px;">
+      <a href="mailto:bankragilgunawan@gmail.com" class="btn" style="background:#ff5722;margin:5px;">Email</a>
+      <a href="https://wa.me/6282121218466" class="btn" style="background:#25d366;margin:5px;" target="_blank">WhatsApp</a>
+      <a href="https://t.me/masgunkasep" class="btn" style="background:#0088cc;margin:5px;" target="_blank">Telegram</a>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div class="modal" id="appModal">
-    <div class="modal-content">
-      <h2 id="modalTitle">Judul Aplikasi</h2>
-      <p id="modalDesc">Deskripsi aplikasi akan muncul di sini.</p>
-      <button class="btn-primary" id="goToApp">Lanjut ke Aplikasi</button>
-      <button class="btn-secondary" onclick="closeModal()">Tutup</button>
-    </div>
-  </div>
-
-<div class="intro-box" style="margin-bottom: 50px;">
-  <p>
-    <strong>By : Ragil Gunawan © 2025</strong><br/>
-      </p><p>Tertarik untuk memiliki aplikasi sendiri mari diskusi klik tombol bulat di 👉</p>
-</div>
 
   <script>
-    const modal = document.getElementById('appModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const goToApp = document.getElementById('goToApp');
-
-    const appLinks = {
-      '📒 Catatan Keuangan': 'https://bankragilgunawan.github.io/Catatan-keuangan',
-      '🎵 Pemutar Musik': 'https://bankragilgunawan.github.io/Musik',
-      '🧾 Struk Belanja': 'https://bankragilgunawan.github.io/Nota',
-      '🎲 Prediksi Sicbo': 'https://bankragilgunawan.github.io/prediksi-sicbo'
-    };
-
-    function openModal(title, desc) {
-      modalTitle.textContent = title;
-      modalDesc.textContent = desc;
-      goToApp.onclick = () => window.open(appLinks[title], '_blank');
-      modal.style.display = 'flex';
+    function toggleContact() {
+      const div = document.getElementById('contact-options');
+      if (div.style.display === 'none') {
+        div.style.display = 'block';
+        div.style.animation = 'fadeSlide 0.4s ease forwards';
+      } else {
+        div.style.display = 'none';
+      }
     }
-
-    function closeModal() {
-      modal.style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      if (event.target === modal) closeModal();
-    };
   </script>
-  
-<!-- ...konten about.html sebelumnya -->
 
-<!-- Tambahkan di sini 👇 -->
-<div id="floatingBtn" onclick="toggleContactMenu()">📬</div>
-
-<div id="contactMenu">
-  <a href="mailto:bankragilgunawan@gmail.com" target="_blank">📧 Email</a>
-  <a href="https://github.com/bankragilgunawan" target="_blank">💻 GitHub</a>
-  <a href="https://wa.me/6282121218466" target="_blank">📱 WhatsApp</a>
-</div>
-
-<style>
-  /* CSS tombol melayang dan menu kontak */
-  #floatingBtn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #1976d2;
-    color: white;
-    font-size: 24px;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-
-  #floatingBtn:hover {
-    transform: scale(1.1);
-  }
-
-  #contactMenu {
-    position: fixed;
-    bottom: 90px;
-    right: 25px;
-    background: white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 10px 15px;
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 999;
-    animation: slideUp 0.3s ease;
-  }
-
-  #contactMenu a {
-    text-decoration: none;
-    color: #1976d2;
-    font-weight: bold;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
-<script>
-  function toggleContactMenu() {
-    const menu = document.getElementById('contactMenu');
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-  }
-</script>
-
+  <div class="floating-footer">
+    &copy; 2025 Bank Ragil | Dibuat dengan ❤️ dan sinyal kampung
+  </div>
 </body>
 </html>
+
+      
