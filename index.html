@@ -1,164 +1,571 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bank Ragil Apps</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #f7f7f7 url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366?fit=crop&w=1200&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      padding: 20px;
-    }
-    .floating-header,
-    .floating-footer,
-    .glass-block {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    h1 {
-      margin-bottom: 0.2em;
-      color: white;
-    }
-    .intro {
-      font-size: 1.1em;
-      color: #fff8dc;
-    }
-    .app {
-      background: rgba(255,255,255,0.85);
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-    .app:nth-child(3) { animation-delay: 0.3s; }
-    .app:nth-child(4) { animation-delay: 0.9s; }
-    .app:nth-child(5) { animation-delay: 1.5s; }
-    .app:nth-child(6) { animation-delay: 2.3s; }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .app h2 {
-      margin: 0 0 5px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 8px 16px;
-      background: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .btn-trakteer {
-      display: block;
-      text-align: center;
-      margin: 30px auto 0;
-      font-size: 16px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .btn-trakteer img {
-      margin-top: 10px;
-      width: 200px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    }
-    .floating-footer {
-      margin: 50px 0 0;
-      color: #fff;
-      font-size: 14px;
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Ragil Gunawan - Portfolio & Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .profile-img:hover::before {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+            font-weight: 300;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #a78bfa;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            border-color: rgba(167, 139, 250, 0.3);
+        }
+
+        .contact-item i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .time-display {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 50px 0 40px;
+            color: white;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0 60px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .project-desc {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .project-link:hover::before {
+            left: 100%;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-link i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                font-size: 50px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .project-card {
+                padding: 25px;
+            }
+        }
+
+        .color-1 { background: linear-gradient(45deg, #3498db, #2980b9); }
+        .color-2 { background: linear-gradient(45deg, #27ae60, #2ecc71); }
+        .color-3 { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+        .color-4 { background: linear-gradient(45deg, #e67e22, #d35400); }
+        .color-5 { background: linear-gradient(45deg, #e74c3c, #c0392b); }
+        .color-6 { background: linear-gradient(45deg, #f39c12, #e67e22); }
+        .color-7 { background: linear-gradient(45deg, #1abc9c, #16a085); }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
-  <div class="floating-header">
-    <h1>🌟 Aplikasi Karya Bank Ragil</h1>
-    <p class="intro">
-      Selamat datang!<br> Ini kumpulan karya terbaik yang telah aku buat. Dijamin aman, ringan, <br>dan tanpa iklan tentunya😄<br>
-      Cocok buat harian, santai, dan produktif. <br>Silakan dicoba satu per satu ya!
-    </p>
-  </div>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+        <header>
+            <div class="header-bg"></div>
+            <div class="profile-container">
+               <div class="profile-img float-animation">
+    <img src="https://bankragilgunawan.wordpress.com/wp-content/uploads/2025/07/fb_img_17536154523841940721705341800038.jpg" alt="Foto Profil" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+</div>            </div>
+            <h1>Bank Ragil Gunawan</h1>
+            <p class="subtitle">Full Stack Developer & Digital Creator</p>
+            
+            <div class="contact-section">
+                <div class="contact-title">Get In Touch</div>
+                <div class="contact-info">
+                    <a href="https://wa.me/62816308466" class="contact-item" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+62 816-308-466</span>
+                    </a>
+                    <a href="mailto:bankragilgunawan@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>bankragilgunawan@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="time-display" id="current-time"></div>
+        </header>
 
-  <div class="app">
-    <h2>🧾 Nota Belanja Retro</h2>
-    <p>Catat dan cetak nota belanja gaya retro. Bisa kirim ke WhatsApp dan download struk, ringan dan cepat di akses.</p>
-    <a class="btn" href="https://bankragilgunawan.github.io/Nota">Coba Sekarang</a>
-  </div>
+        <h2 class="section-title">Featured Projects</h2>
 
-  <div class="app">
-    <h2>🎵 Pemutar Musik</h2>
-    <p>Putar lagu favorit dari HP kamu, lengkap dengan playlist, shuffle, dan pastinya tanpa iklan mengganggu.</p>
-    <a class="btn" href="https://bankragilgunawan.github.io/Musik">Coba Sekarang</a>
-  </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon color-1">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="project-title">Bot Payment</h3>
+                <p class="project-desc">Solusi pembayaran otomatis berbasis chatbot yang memudahkan transaksi digital. Dengan integrasi multi-payment gateway, pengguna dapat melakukan pembayaran dengan cepat dan aman hanya dengan beberapa klik. Fitur keamanan tingkat lanjut dan antarmuka yang intuitif membuat pengalaman pembayaran menjadi lebih menyenangkan dan efisien.</p>
+                <a href="/bot-payment" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-  <div class="app">
-    <h2>📒 Catatan Keuangan</h2>
-    <p>Atur keuangan harian, lihat grafik pemasukan & pengeluaran, dilengkapi dengan tema gelap/terang..</p>
-    <a class="btn" href="https://bankragilgunawan.github.io/Catatan-keuangan">Coba Sekarang</a>
-  </div>
+            <div class="project-card">
+                <div class="project-icon color-2">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="project-title">Target Management</h3>
+                <p class="project-desc">Platform manajemen target pribadi dan profesional yang dirancang untuk membantu Anda mencapai tujuan dengan metode SMART. Dilengkapi dengan sistem tracking real-time, reminder cerdas, dan analisis progres yang membantu mengoptimalkan produktivitas. Integrasi kalender dan notifikasi membuat Anda tetap konsisten dalam mengejar target jangka pendek maupun panjang.</p>
+                <a href="/target" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-  <div class="app">
-    <h2>🎲 Prediksi Sicbo</h2>
-    <p>Masukkan angka, lihat hasil besar/kecil, ganjil/genap, Lihat seberapa akurat prediksimu? dilengkapi dengan input modal, dan profit-loss.</p>
-    <a class="btn" href="https://bankragilgunawan.github.io/prediksi-sicbo">Coba Sekarang</a>
-  </div>
+            <div class="project-card">
+                <div class="project-icon color-3">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="project-title">Music Player Pro</h3>
+                <p class="project-desc">Pemutar musik premium dengan kualitas suara tinggi dan koleksi lagu yang terus diperluas. Fitur rekomendasi cerdas berdasarkan selera musik Anda, playlist personal, dan mode offline membuat pengalaman mendengarkan musik menjadi lebih personal. Dukungan berbagai format audio dan equalizer profesional memberikan kualitas suara terbaik untuk setiap genre musik.</p>
+                <a href="/musik" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-  <div class="glass-block">
-    <a class="btn-trakteer" href="https://bankragilgunawan.wordpress.com/wp-content/uploads/2025/06/img_20250603_0835236907856793821977069.jpg" target="_blank">
-        
-    ☕ <span style="color:#e91e63; font-weight:bold;">Dukung aku di Trakteer</span>, 
-<br><span style="color:#ff4081;">dukunganmu berarti banget buat aku</span><br>
-       <img src="https://bankragilgunawan.wordpress.com/wp-content/uploads/2025/06/img_20250603_0835236907856793821977069.jpg" alt="QR Trakteer">
-  </a>
-  <a href="https://trakteer.id/bankragilgunawan" class="btn" style="background:#ff5722;margin:5px;">Trakteer Langsung</a>
+            <div class="project-card">
+                <div class="project-icon color-4">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3 class="project-title">Smart Link Manager</h3>
+                <p class="project-desc">Manajer bookmark canggih dengan kemampuan kategorisasi cerdas dan pencarian instan. Simpan, organisir, dan akses semua link penting Anda dalam satu tempat yang terintegrasi. Fitur tagging, sinkronisasi multi-device, dan backup otomatis memastikan tidak ada link penting yang hilang. Dengan antarmuka drag-and-drop yang intuitif, mengelola koleksi link menjadi lebih efisien dari sebelumnya.</p>
+                <a href="/link" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
+            <div class="project-card">
+                <div class="project-icon color-5">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="project-title">Wedding Gift Platform</h3>
+                <p class="project-desc">Platform kreatif untuk memberikan kado pernikahan yang personal dan berkesan. Dengan berbagai template desain eksklusif, personalisasi pesan, dan opsi kado digital maupun fisik, membuat setiap hadiah menjadi spesial. Fitur kolaborasi grup memungkinkan teman dan keluarga bersama-sama memberikan kado yang lebih bermakna untuk pasangan pengantin baru.</p>
+                <a href="/kado" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-  <div style="text-align: center; margin-top: 30px;">
-    <button onclick="toggleContact()" style="padding: 10px 20px; border: none; border-radius: 8px; background: #2196f3; color: white; font-size: 16px;">📞 Kontak</button>
-    <div id="contact-options" style="display: none; margin-top: 15px;">
-      <a href="mailto:bankragilgunawan@gmail.com" class="btn" style="background:#ff5722;margin:5px;">Email</a>
-      <a href="https://wa.me/6282121218466" class="btn" style="background:#25d366;margin:5px;" target="_blank">WhatsApp</a>
-      <a href="https://t.me/masgunkasep" class="btn" style="background:#0088cc;margin:5px;" target="_blank">Telegram</a>
+            <div class="project-card">
+                <div class="project-icon color-6">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <h3 class="project-title">Retro Receipt Generator</h3>
+                <p class="project-desc">Generator struk belanja dengan desain retro klasik yang memberikan kesan profesional dan nostalgia. Dilengkapi dengan template berbagai toko, kalkulasi otomatis pajak, dan fitur cetak yang ramah lingkungan. Cocok untuk UMKM yang ingin memberikan pengalaman belanja yang unik dan berkesan kepada pelanggan dengan struk yang estetik dan informatif.</p>
+                <a href="/struk-belanja" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon color-7">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3 class="project-title">Finance Tracker</h3>
+                <p class="project-desc">Aplikasi manajemen keuangan pribadi dengan dashboard analitik yang komprehensif. Lacak pengeluaran, pantau anggaran, dan analisis pola keuangan dengan grafik interaktif yang mudah dipahami. Fitur reminder tagihan, laporan keuangan otomatis, dan integrasi bank membuat pengelolaan keuangan menjadi lebih transparan dan terkendali dengan baik.</p>
+                <a href="/catatan-keuangan" class="project-link">
+                    Explore Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function toggleContact() {
-      const div = document.getElementById('contact-options');
-      if (div.style.display === 'none') {
-        div.style.display = 'block';
-        div.style.animation = 'fadeSlide 0.4s ease forwards';
-      } else {
-        div.style.display = 'none';
-      }
-    }
-  </script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const timeString = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = timeString;
+        }
 
-  <div class="floating-footer">
-    &copy; 2025 Bank Ragil | Dibuat dengan ❤️ dan sinyal kampung
-  </div>
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 10 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Add hover effect to project cards
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
-</html>
-
-      
+                  </html>
